@@ -49,11 +49,18 @@
 
 
 
-          <button class="btn" type="button" name="button">Add a Pokemon</button>
+          <button id="showAddPokemonForm" class="btn" type="button" name="button">Add a Pokemon</button>
+          <form id="addPokemonForm" class="add-pokemon-form" action="" method="post">
+            <p><input type="text" name="name" placeholder="Pokemon Name"></p>
+            <p><input type="text" name="trainer_id" placeholder="Trainer ID"></p>
+            <p><input type="text" name="cp" placeholder="CP"></p>
+            <p><input type="text" name="in_gym" placeholder="In Gym"></p>
+            <p><button type="submit" class="btn">Add Pokemon</button></p>
+          </form>
 
 
 
-          
+
 
         </div>
 
@@ -62,6 +69,9 @@
         </footer>
       </div>
     </div>
+    <script type="text/javascript" src="/js/pokemon.js">
+
+    </script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
   </body>

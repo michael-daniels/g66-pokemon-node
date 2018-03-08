@@ -552,8 +552,12 @@ a img{
 
 /*---------------------------------------------*/
 
-
-
+form {
+  padding:30px 0;
+}
+.add-pokemon-form {
+  display:none;
+}
 
 
 
