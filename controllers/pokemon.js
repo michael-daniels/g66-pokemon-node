@@ -10,13 +10,32 @@ module.exports = {
 
   add: function(req, res, next) {
     knex('pokemon').insert({
-      name: req.body.name,
+      pokemon_name: req.body.pokemon_name,
       trainer_id: null,
       cp:req.body.cp,
       in_gym:false,
     }).then(() => {
         res.redirect('/pokemon');
       })
+  },
+
+  edit: function(req, res, next) {
+    knex('pokemon').where('pokemon.id', req.params.id)
+      .then((results) => {
+        console.log(results)
+        res.render('edit', {current_pokemon:results});
+      })
+  },
+
+  update: function(req, res, next) {
+    knex('pokemon').where('id', req.params.id).update({
+      pokemon_name:req.body.pokemon_name,
+      trainer_id:req.body.trainer_id,
+      cp:req.body.cp,
+      in_gym:false
+    }).then(() => {
+      res.redirect('/pokemon')
+    })
   },
 
   delete: function(req, res, next) {

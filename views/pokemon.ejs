@@ -51,7 +51,7 @@
 
           <button id="showAddPokemonForm" class="btn" type="button" name="button">Add a Pokemon</button>
           <form id="addPokemonForm" class="add-pokemon-form" action="/pokemon/add" method="post">
-            <p><input type="text" name="name" placeholder="Pokemon Name"></p>
+            <p><input type="text" name="pokemon_name" placeholder="Pokemon Name"></p>
             <p><input type="hidden" name="trainer_id" placeholder="Trainer ID"></p>
             <p><input type="text" name="cp" placeholder="CP"></p>
             <p><input type="hidden" name="in_gym" placeholder="In Gym"></p>
@@ -67,7 +67,7 @@
                   <h2>CP: <%= allpokemon[i].cp %></h2>
                   <div class="row">
                     <div class="col-md-6">
-                      EDIT
+                      <a href="pokemon/edit/<%= allpokemon[i].id %>">EDIT</a>
                     </div>
                     <div class="col-md-6">
                       <a href="pokemon/delete/<%= allpokemon[i].id %>">DELETE</a>

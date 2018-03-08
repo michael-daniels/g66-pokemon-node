@@ -11,7 +11,13 @@ module.exports = function(app){
 
   app.post('/pokemon/add', pokemon.add);
 
+  app.get('/pokemon/edit/:id', pokemon.edit);
+
+  app.post('/pokemon/edit/:id/update', pokemon.update);
+
   app.get('/pokemon/delete/:id', pokemon.delete);
 
   app.get('/pokemon/show_page/:id', show_page.main);
+
+
 }
