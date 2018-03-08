@@ -18,4 +18,11 @@ module.exports = {
         res.redirect('/pokemon');
       })
   },
+
+  delete: function(req, res, next) {
+    knex('pokemon').where('id', req.params.id).del()
+      .then(() => {
+        res.redirect('/pokemon');
+      })
+  },
 };

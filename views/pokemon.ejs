@@ -63,8 +63,16 @@
               <% for (let i = 0; i < allpokemon.length; i++) { %>
               <div class="col-md-4">
                 <div class="single-pokemon-card">
-                  <h2><%= allpokemon[i].name %></h2>
-                  <h2><%= allpokemon[i].cp %></h2>
+                  <h2><a href="/pokemon/show_page/<%= allpokemon[i].id %>"><%= allpokemon[i].pokemon_name %></a></h2>
+                  <h2>CP: <%= allpokemon[i].cp %></h2>
+                  <div class="row">
+                    <div class="col-md-6">
+                      EDIT
+                    </div>
+                    <div class="col-md-6">
+                      <a href="pokemon/delete/<%= allpokemon[i].id %>">DELETE</a>
+                    </div>
+                  </div>
                 </div>
               </div>
               <% } %>
