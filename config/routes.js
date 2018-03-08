@@ -7,4 +7,6 @@ module.exports = function(app){
   app.get('/', index.main);
 
   app.get('/pokemon', pokemon.main);
+
+  app.post('/pokemon/add', pokemon.add);
 }

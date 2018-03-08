@@ -555,8 +555,17 @@ a img{
 form {
   padding:30px 0;
 }
+.container {
+  text-align: center;
+  margin-top:30px;
+}
 .add-pokemon-form {
   display:none;
+}
+.single-pokemon-card {
+  background-color: #f2f2f2;
+  min-width: 90%;
+  min-height: 200px;
 }
 
 
