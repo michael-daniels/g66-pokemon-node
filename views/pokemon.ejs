@@ -66,10 +66,19 @@
                   <h2><a href="/pokemon/show_page/<%= allpokemon[i].id %>"><%= allpokemon[i].pokemon_name %></a></h2>
                   <h2>CP: <%= allpokemon[i].cp %></h2>
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <a href="pokemon/edit/<%= allpokemon[i].id %>">EDIT</a>
                     </div>
-                    <div class="col-md-6">
+                    <% if (allpokemon[i].in_gym == false) { %>
+                    <div class="col-md-4">
+                      <a href="/pokemon/gym/add/<%= allpokemon[i].id %>">ENTER GYM</a>
+                    </div>
+                    <% } else { %>
+                      <div class="col-md-4">
+                        <a href="/pokemon/gym/remove/<%= allpokemon[i].id %>">LEAVE GYM</a>
+                      </div>
+                    <% } %>
+                    <div class="col-md-4">
                       <a href="pokemon/delete/<%= allpokemon[i].id %>">DELETE</a>
                     </div>
                   </div>

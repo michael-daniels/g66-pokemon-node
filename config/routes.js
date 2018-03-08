@@ -2,6 +2,7 @@
 const index = require("../controllers/index.js");
 const pokemon = require("../controllers/pokemon.js");
 const show_page = require("../controllers/show_page.js");
+const gym = require("../controllers/gym.js");
 
 module.exports = function(app){
 
@@ -19,5 +20,14 @@ module.exports = function(app){
 
   app.get('/pokemon/show_page/:id', show_page.main);
 
+  app.get('/pokemon/gym/add/:id', pokemon.add_gym_home);
+
+  app.get('/pokemon/gym/remove/:id', pokemon.remove_gym_home);
+
+  app.get('/gym', gym.main);
+
+  app.post('/gym/add/', gym.add_gym);
+
+  app.post('/gym/remove/', gym.remove_gym);
 
 }

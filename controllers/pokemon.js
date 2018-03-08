@@ -44,4 +44,18 @@ module.exports = {
         res.redirect('/pokemon');
       })
   },
+
+  add_gym_home: function(req, res, next) {
+    knex('pokemon').where('id', req.params.id).update({in_gym: true})
+      .then((results) => {
+      res.redirect('/pokemon');
+    })
+  },
+
+  remove_gym_home: function(req, res, next) {
+    knex('pokemon').where('id', req.params.id).update({in_gym: false})
+      .then((results) => {
+      res.redirect('/pokemon');
+    })
+  },
 };
