@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.integer('trainer_id');
     table.integer('cp');
     table.boolean('in_gym');
+    table.string('img_url');
   })
 };
 

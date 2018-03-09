@@ -575,7 +575,7 @@ form {
 
 }
 .pokemon-image {
-  max-width: 60%;
+  max-height: 200px;
 }
 .winner {
   display:none;
