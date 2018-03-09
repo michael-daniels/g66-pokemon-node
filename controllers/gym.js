@@ -20,6 +20,11 @@ module.exports = {
   add_gym: function(req, res, next) {
     knex('pokemon').where('id', req.body.id).update({in_gym: true})
       .then((results) => {
+        if (req.session.current_user[0].p1 == undefined) {
+          req.session.current_user[0].p1 = req.body.id
+        } else {
+          req.session.current_user[0].p2 = req.body.id
+        }
       res.redirect('/gym');
     })
   },
@@ -34,7 +39,8 @@ module.exports = {
   reset: function(req, res, next) {
     knex('pokemon').update({in_gym:false})
       .then(() => {
-        res.redirect('/gym')
+        req.session.current_user = [{}];
+        res.redirect('/gym');
       })
   },
 

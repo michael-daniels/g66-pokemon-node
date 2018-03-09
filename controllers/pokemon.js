@@ -58,6 +58,11 @@ module.exports = {
         if (totalInGym < 3) {
           knex('pokemon').where('id', req.params.id).update({in_gym:true})
             .then(() => {
+              if (req.session.current_user[0].p1 == undefined) {
+                req.session.current_user[0].p1 = req.params.id
+              } else {
+                req.session.current_user[0].p2 = req.params.id
+              }
               res.redirect('/pokemon')
             })
         } else {
@@ -66,16 +71,15 @@ module.exports = {
     })
   },
 
-  // add_gym_home: function(req, res, next) {
-  //   knex('pokemon').where('id', req.params.id).update({in_gym: true})
-  //     .then((results) => {
-  //     res.redirect('/pokemon');
-  //   })
-  // },
-
   remove_gym_home: function(req, res, next) {
     knex('pokemon').where('id', req.params.id).update({in_gym: false})
       .then((results) => {
+      if (req.session.current_user[0].p1 == req.params.id) {
+        delete req.session.current_user[0].p1
+      }
+      if (req.session.current_user[0].p2 == req.params.id) {
+        delete req.session.current_user[0].p2
+      }
       res.redirect('/pokemon');
     })
   },
