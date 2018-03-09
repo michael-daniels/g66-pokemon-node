@@ -32,7 +32,7 @@
             <nav class="pokemon-navigation mdl-navigation">
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/trainers">Trainers</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/pokemon">Pokemón</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="gym">Gym</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/gym">Gym</a>
             </nav>
           </div>
           <span class="pokemon-mobile-title mdl-layout-title">
@@ -49,18 +49,22 @@
 
           <div class="all-pokemon container">
             <div class="single-pokemon-card">
+              <h1><%= current_trainer[0].trainer_name %></h1>
+              <hr>
               <div class="row">
-                <div class="col-md-6">
-                  <div class="pokemon-image-div">
-                    <img class="pokemon-image" src="http://www.pngmart.com/files/2/Pikachu-PNG-File.png" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <h1><%= current_trainer[0].trainer_name %></h1>
+
+
+
                   <% for (let i = 0; i < current_trainer.length; i++) { %>
-                  <h3><%= current_trainer[i].pokemon_name %></h3>
+                    <div class="col-md-4">
+                    <div class="pokemon-image-div">
+                      <img class="pokemon-image" src="<%= current_trainer[i].img_url %>" alt="">
+                      <h3><%= current_trainer[i].pokemon_name %></h3>
+                    </div>
+
+                    </div>
                   <% } %>
-                </div>
+
               </div>
             </div>
           </div>
