@@ -577,8 +577,8 @@ form {
 .pokemon-image {
   max-width: 60%;
 }
-.col-md-6 {
-
+.winner {
+  display:none;
 }
 
 
