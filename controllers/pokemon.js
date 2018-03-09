@@ -20,6 +20,7 @@ module.exports = {
       pokemon_name: req.body.pokemon_name,
       trainer_id: req.body.trainer_id,
       cp:req.body.cp,
+      img_url:req.body.img_url,
       in_gym:false,
     }).then(() => {
         res.redirect('/pokemon');
@@ -45,6 +46,7 @@ module.exports = {
       pokemon_name:req.body.pokemon_name,
       trainer_id:req.body.trainer_id,
       cp:req.body.cp,
+      img_url:req.body.img_url,
       in_gym:false
     }).then(() => {
       res.redirect(`/pokemon/pokemon_show_page/${req.params.id}`)

@@ -48,17 +48,6 @@
     <div class="pokemon-content mdl-layout__content">
       <div class="app-content pokemon-wear-section">
 
-
-
-
-        <form id="addPokemonForm" class="add-pokemon-form" action="/pokemon/add" method="post">
-          <p><input type="text" name="name" placeholder="Pokemon Name"></p>
-          <p><input type="hidden" name="trainer_id" placeholder="Trainer ID"></p>
-          <p><input type="text" name="cp" placeholder="CP"></p>
-          <p><input type="hidden" name="in_gym" placeholder="In Gym"></p>
-          <p><button type="submit" class="btn">Add Pokemon</button></p>
-        </form>
-
         <div class="all-pokemon container">
                 <div class="single-pokemon-card">
                   <form action="/pokemon/edit/<%= current_pokemon[0].id %>/update" method="post">
@@ -66,6 +55,8 @@
                     <p><input class="form-control" type="text" name="pokemon_name" value="<%= current_pokemon[0].pokemon_name %>"></p>
                     Pokemon's CP:
                     <p><input class="form-control" type="text" name="cp" value="<%= current_pokemon[0].cp %>"></p>
+                    Pokemon Image URL:
+                    <p><input class="form-control" type="text" name="img_url" value="<%= current_pokemon[0].img_url %>"></p>
                     Trainer:
                     <p><select class="form-control" name="trainer_id">
                         <% for (let i = 0; i < all_trainers.length; i++) { %>

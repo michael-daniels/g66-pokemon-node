@@ -60,6 +60,9 @@
               <input class="form-control" type="text" name="cp" placeholder="CP">
             </div>
             <div class="form-group">
+              <input class="form-control" type="text" name="img_url" placeholder="Pokemon Image URL">
+            </div>
+            <div class="form-group">
               <select class="form-control" name="trainer_id">
               <% for (let i = 0; i < alltrainers.length; i++) { %>
               <option value="<%= alltrainers[i].id %>"><%= alltrainers[i].trainer_name %></option>
