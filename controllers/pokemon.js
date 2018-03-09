@@ -3,7 +3,7 @@ var knex = require('../db/knex');
 module.exports = {
 
   main: function(req, res, next) {
-    knex('pokemon').then((results) => {
+    knex('pokemon').orderBy('cp', 'asc').then((results) => {
       res.render('pokemon', {allpokemon:results});
     })
   },
@@ -46,11 +46,32 @@ module.exports = {
   },
 
   add_gym_home: function(req, res, next) {
-    knex('pokemon').where('id', req.params.id).update({in_gym: true})
-      .then((results) => {
-      res.redirect('/pokemon');
+    var totalInGym = 1;
+    knex('pokemon').then((results) => {
+      for (let i = 0; i < results.length; i++) {
+        if (results[i].in_gym == true) {
+          totalInGym++
+        }
+      }
+      console.log(totalInGym)
+    }).then(() => {
+        if (totalInGym < 3) {
+          knex('pokemon').where('id', req.params.id).update({in_gym:true})
+            .then(() => {
+              res.redirect('/pokemon')
+            })
+        } else {
+          res.redirect('/pokemon')
+        }
     })
   },
+
+  // add_gym_home: function(req, res, next) {
+  //   knex('pokemon').where('id', req.params.id).update({in_gym: true})
+  //     .then((results) => {
+  //     res.redirect('/pokemon');
+  //   })
+  // },
 
   remove_gym_home: function(req, res, next) {
     knex('pokemon').where('id', req.params.id).update({in_gym: false})

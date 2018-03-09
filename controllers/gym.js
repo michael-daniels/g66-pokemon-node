@@ -12,19 +12,10 @@ module.exports = {
         } else {
           in_gym_false.push(results[i])
         }
-
       }
-      console.log('in gym true: ', in_gym_true);
-      console.log('in gym false: ', in_gym_false);
       res.render('gym', {in_gym_false:in_gym_false, in_gym_true:in_gym_true});
     })
   },
-
-  // main: function(req, res, next) {
-  //   knex('pokemon').where('in_gym', '<>', 'true').then((results) => {
-  //     res.render('gym', {allpokemon:results});
-  //   })
-  // },
 
   add_gym: function(req, res, next) {
     knex('pokemon').where('id', req.body.id).update({in_gym: true})
@@ -38,6 +29,13 @@ module.exports = {
       .then((results) => {
       res.redirect('/gym');
     })
+  },
+
+  reset: function(req, res, next) {
+    knex('pokemon').update({in_gym:false})
+      .then(() => {
+        res.redirect('/gym')
+      })
   },
 
 };

@@ -32,6 +32,8 @@ module.exports = function(app){
 
   app.post('/gym/remove/', gym.remove_gym);
 
+  app.get('/gym/reset', gym.reset);
+
   app.get('/trainers', trainers.main);
 
   app.get('/trainers/trainers_show_page/:id', trainers_show_page.main);
