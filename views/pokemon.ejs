@@ -32,7 +32,7 @@
             <nav class="pokemon-navigation mdl-navigation">
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/trainers">Trainers</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/pokemon">Pokemón</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#">Gym</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/gym">Gym</a>
             </nav>
           </div>
           <span class="pokemon-mobile-title mdl-layout-title">
@@ -63,7 +63,7 @@
               <% for (let i = 0; i < allpokemon.length; i++) { %>
               <div class="col-md-4">
                 <div class="single-pokemon-card">
-                  <h2><a href="/pokemon/show_page/<%= allpokemon[i].id %>"><%= allpokemon[i].pokemon_name %></a></h2>
+                  <h2><a href="/pokemon/pokemon_show_page/<%= allpokemon[i].id %>"><%= allpokemon[i].pokemon_name %></a></h2>
                   <h2>CP: <%= allpokemon[i].cp %></h2>
                   <div class="row">
                     <div class="col-md-4">

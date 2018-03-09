@@ -1,8 +1,10 @@
 //Update the name of the controller below and rename the file.
 const index = require("../controllers/index.js");
 const pokemon = require("../controllers/pokemon.js");
-const show_page = require("../controllers/show_page.js");
+const pokemon_show_page = require("../controllers/pokemon_show_page.js");
 const gym = require("../controllers/gym.js");
+const trainers = require("../controllers/trainers.js");
+const trainers_show_page = require("../controllers/trainers_show_page.js");
 
 module.exports = function(app){
 
@@ -18,7 +20,7 @@ module.exports = function(app){
 
   app.get('/pokemon/delete/:id', pokemon.delete);
 
-  app.get('/pokemon/show_page/:id', show_page.main);
+  app.get('/pokemon/pokemon_show_page/:id', pokemon_show_page.main);
 
   app.get('/pokemon/gym/add/:id', pokemon.add_gym_home);
 
@@ -29,5 +31,9 @@ module.exports = function(app){
   app.post('/gym/add/', gym.add_gym);
 
   app.post('/gym/remove/', gym.remove_gym);
+
+  app.get('/trainers', trainers.main);
+
+  app.get('/trainers/trainers_show_page/:id', trainers_show_page.main);
 
 }
