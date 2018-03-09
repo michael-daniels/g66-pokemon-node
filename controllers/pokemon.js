@@ -47,7 +47,7 @@ module.exports = {
       cp:req.body.cp,
       in_gym:false
     }).then(() => {
-      res.redirect('/pokemon')
+      res.redirect(`/pokemon/pokemon_show_page/${req.params.id}`)
     })
   },
 
