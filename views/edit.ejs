@@ -68,9 +68,8 @@
                     <p><input type="text" name="cp" value="<%= current_pokemon[0].cp %>"></p>
                     Trainer:
                     <p><select name="trainer_name">
-                        <option value="<%= current_pokemon[0].trainer_id %>"><%= current_pokemon[0].trainer_id %></option>
                         <% for (let i = 0; i < 3; i++) { %>
-                        <option value="<%= current_pokemon[0].trainer_id %>"><%= current_pokemon[0].trainer_id %></option>
+                        <option value="<%= all_trainers[i].id %>"><%= all_trainers[i].trainer_name %></option>
                         <% } %>
                       </select>
                     </p>

@@ -52,9 +52,12 @@
           <button id="showAddPokemonForm" class="btn" type="button" name="button">Add a Pokemon</button>
           <form id="addPokemonForm" class="add-pokemon-form" action="/pokemon/add" method="post">
             <p><input type="text" name="pokemon_name" placeholder="Pokemon Name"></p>
-            <p><input type="hidden" name="trainer_id" placeholder="Trainer ID"></p>
             <p><input type="text" name="cp" placeholder="CP"></p>
-            <p><input type="hidden" name="in_gym" placeholder="In Gym"></p>
+            <select name="trainer_id">
+              <% for (let i = 0; i < alltrainers.length; i++) { %>
+              <option value="<%= alltrainers[i].id %>"><%= alltrainers[i].trainer_name %></option>
+              <% } %>
+            </select>
             <p><button type="submit" class="btn">Add Pokemon</button></p>
           </form>
 

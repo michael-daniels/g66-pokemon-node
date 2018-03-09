@@ -3,15 +3,22 @@ var knex = require('../db/knex');
 module.exports = {
 
   main: function(req, res, next) {
+    let results1;
+    let results2;
     knex('pokemon').orderBy('cp', 'asc').then((results) => {
-      res.render('pokemon', {allpokemon:results});
+      results1 = results;
+      knex('trainers')
+      .then((results) => {
+        results2 = results
+        res.render('pokemon', {allpokemon:results1, alltrainers:results2});
+      })
     })
   },
 
   add: function(req, res, next) {
     knex('pokemon').insert({
       pokemon_name: req.body.pokemon_name,
-      trainer_id: null,
+      trainer_id: req.body.trainer_id,
       cp:req.body.cp,
       in_gym:false,
     }).then(() => {
@@ -20,10 +27,16 @@ module.exports = {
   },
 
   edit: function(req, res, next) {
+    let results1;
+    let results2;
     knex('pokemon').where('pokemon.id', req.params.id)
       .then((results) => {
-        console.log(results)
-        res.render('edit', {current_pokemon:results});
+        results1 = results
+        knex('trainers')
+        .then((results) => {
+          results2 = results
+          res.render('edit', {current_pokemon:results1, all_trainers:results2})
+        })
       })
   },
 
