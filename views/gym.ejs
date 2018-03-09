@@ -59,12 +59,12 @@
               <div class="single-pokemon-card">
               <% if (!in_gym_true[0]) { %>
               <form class="" action="/gym/add" method="post">
-                <p><select name="id">
+                <p><select class="form-control" name="id">
                   <% for (let i = 0; i < in_gym_false.length; i++) { %>
                     <option value="<%= in_gym_false[i].id %>"><%= in_gym_false[i].pokemon_name %></option>
                   <% } %>
                 </select></p>
-                <p><button class="btn" type="submit">Add to Gym</button></p>
+                <p><button class="btn btn-primary" type="submit">Add to Gym</button></p>
               </form>
               <% } %>
 
@@ -82,12 +82,12 @@
               <div class="single-pokemon-card">
               <% if (!in_gym_true[1]) { %>
               <p><form class="" action="/gym/add" method="post">
-                <select name="id">
+                <select class="form-control" name="id">
                   <% for (let i = 0; i < in_gym_false.length; i++) { %>
                     <option value="<%= in_gym_false[i].id %>"><%= in_gym_false[i].pokemon_name %></option>
                   <% } %>
                 </select></p>
-                <p><button class="btn" type="submit">Add to Gym</button></p>
+                <p><button class="btn btn-primary" type="submit">Add to Gym</button></p>
               </form>
               <% } %>
               <% if (in_gym_true[1]) { %>
