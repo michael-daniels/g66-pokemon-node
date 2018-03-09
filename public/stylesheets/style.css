@@ -311,9 +311,8 @@ a img{
 
 .pokemon-wear-section {
   position: relative;
-  background: url('/images/ball_background_opaque.png') center top no-repeat;
-  background-size: cover;
-  height: 800px;
+  background-color:lightgray;
+  min-height: 800px;
 }
 
 .pokemon-wear-band {

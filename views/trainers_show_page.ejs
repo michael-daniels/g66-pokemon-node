@@ -58,7 +58,7 @@
                   <% for (let i = 0; i < current_trainer.length; i++) { %>
                     <div class="col-md-4">
                     <div class="pokemon-image-div">
-                      <img class="pokemon-image" src="<%= current_trainer[i].img_url %>" alt="">
+                      <a href="/pokemon/pokemon_show_page/<%= current_trainer[i].id %>"><img class="pokemon-image" src="<%= current_trainer[i].img_url %>" alt=""></a>
                       <h3><%= current_trainer[i].pokemon_name %></h3>
                     </div>
 

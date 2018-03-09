@@ -58,7 +58,7 @@
                 <div class="col-md-6">
                   <h1><%= current_pokemon[0].pokemon_name %></h1>
                   <h2>CP: <%= current_pokemon[0].cp %></h2>
-                  <h2>Trainer: <%= current_pokemon[0].trainer_name %></h2>
+                  <h2>Trainer: <a href="/trainers/trainers_show_page/<%= current_pokemon[0].trainer_id %>"><%= current_pokemon[0].trainer_name %></a></h2>
                 </div>
               </div>
             </div>
