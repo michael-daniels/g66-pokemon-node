@@ -49,11 +49,14 @@
       <div class="app-content pokemon-wear-section">
         <div class="all-pokemon container">
 
+          <% if (in_gym_true[0] && in_gym_true[1]) { %>
           <button class="btn" type="button">Battle!</button>
+          <% } %>
 
           <div class="row">
             <div class="col-md-6">
               <div class="single-pokemon-card">
+              <% if (!in_gym_true[0]) { %>
               <form class="" action="/gym/add" method="post">
                 <p><select name="id">
                   <% for (let i = 0; i < in_gym_false.length; i++) { %>
@@ -62,6 +65,8 @@
                 </select></p>
                 <p><button class="btn" type="submit">Add to Gym</button></p>
               </form>
+              <% } %>
+
               <% if (in_gym_true[0]) { %>
               <h1><%= in_gym_true[0].pokemon_name %></h1>
               <% } %>
@@ -71,6 +76,7 @@
             </div>
             <div class="col-md-6">
               <div class="single-pokemon-card">
+              <% if (!in_gym_true[1]) { %>
               <p><form class="" action="/gym/add" method="post">
                 <select name="id">
                   <% for (let i = 0; i < in_gym_false.length; i++) { %>
@@ -79,7 +85,7 @@
                 </select></p>
                 <p><button class="btn" type="submit">Add to Gym</button></p>
               </form>
-
+              <% } %>
               <% if (in_gym_true[1]) { %>
               <h1><%= in_gym_true[1].pokemon_name %></h1>
               <% } %>
